@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yourname.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://yourname.com/about.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourname.com/contact.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <!--
+    Add a <url> block for each case study you publish.
+    Password-protected pages can be omitted if you prefer.
+  -->
+</urlset>

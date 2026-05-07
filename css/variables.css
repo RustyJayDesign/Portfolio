@@ -1,0 +1,43 @@
+/* ============================================
+   DESIGN TOKENS — edit these to match your brand
+   All other CSS files import from here
+   ============================================ */
+
+:root {
+  /* Colors */
+  --color-bg:          #ffffff;
+  --color-text:        #1a1a1a;
+  --color-text-muted:  #6b7280;
+  --color-accent:      #2563eb;
+  --color-accent-dark: #1d4ed8;
+  --color-border:      #e5e7eb;
+  --color-surface:     #f9fafb;
+
+  /* Typography */
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-body:    system-ui, -apple-system, sans-serif;
+
+  /* Spacing scale */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  2rem;
+  --space-xl:  4rem;
+
+  /* Layout */
+  --max-width: 860px;
+  --radius:    6px;
+}
+
+/* Dark mode — auto-detects system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:         #0f172a;
+    --color-text:       #f1f5f9;
+    --color-text-muted: #94a3b8;
+    --color-accent:     #60a5fa;
+    --color-accent-dark:#3b82f6;
+    --color-border:     #1e293b;
+    --color-surface:    #1e293b;
+  }
+}

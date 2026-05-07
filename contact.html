@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Your Name</title>
+  <meta name="description" content="Get in touch with Your Name." />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/print.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Your Name</a>
+      <ul>
+        <li><a href="index.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Contact</h1>
+    <p>
+      Want to work together or just say hello?
+      Replace this form action URL with your Formspree endpoint.
+    </p>
+
+    <!--
+      FORMSPREE SETUP:
+      1. Go to formspree.io and create a free account
+      2. Create a new form — you'll get a URL like https://formspree.io/f/xxxxxxxx
+      3. Replace the action attribute below with that URL
+    -->
+    <form
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+      style="display:flex; flex-direction:column; gap:1rem; max-width:480px;"
+    >
+      <label>
+        <span style="font-size:0.85rem; color:var(--color-text-muted);">Name</span>
+        <input
+          type="text" name="name" required
+          style="
+            display:block; width:100%; margin-top:0.25rem;
+            padding:0.5rem 0.75rem;
+            border:1px solid var(--color-border);
+            border-radius:var(--radius);
+            background:var(--color-surface);
+            color:var(--color-text);
+            font-size:1rem;
+          "
+        />
+      </label>
+
+      <label>
+        <span style="font-size:0.85rem; color:var(--color-text-muted);">Email</span>
+        <input
+          type="email" name="email" required
+          style="
+            display:block; width:100%; margin-top:0.25rem;
+            padding:0.5rem 0.75rem;
+            border:1px solid var(--color-border);
+            border-radius:var(--radius);
+            background:var(--color-surface);
+            color:var(--color-text);
+            font-size:1rem;
+          "
+        />
+      </label>
+
+      <label>
+        <span style="font-size:0.85rem; color:var(--color-text-muted);">Message</span>
+        <textarea
+          name="message" rows="5" required
+          style="
+            display:block; width:100%; margin-top:0.25rem;
+            padding:0.5rem 0.75rem;
+            border:1px solid var(--color-border);
+            border-radius:var(--radius);
+            background:var(--color-surface);
+            color:var(--color-text);
+            font-size:1rem;
+            resize:vertical;
+          "
+        ></textarea>
+      </label>
+
+      <button
+        type="submit"
+        style="
+          align-self:flex-start;
+          padding:0.6rem 1.5rem;
+          background:var(--color-accent);
+          color:#fff;
+          border:none;
+          border-radius:var(--radius);
+          font-size:0.95rem;
+          cursor:pointer;
+        "
+      >Send</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>© 2025 Your Name</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

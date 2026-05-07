@@ -1,0 +1,16 @@
+{
+  "name": "Your Name — UX Designer",
+  "short_name": "Your Name",
+  "description": "UX designer portfolio",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

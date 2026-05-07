@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!--
+    Replace this with your actual logo/favicon exported from Figma.
+    This is just a placeholder circle with your initial.
+  -->
+  <rect width="32" height="32" rx="6" fill="#2563eb"/>
+  <text
+    x="16" y="22"
+    text-anchor="middle"
+    font-family="Georgia, serif"
+    font-size="18"
+    fill="#ffffff"
+  >Y</text>
+</svg>
