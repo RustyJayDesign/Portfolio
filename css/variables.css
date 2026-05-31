@@ -6,7 +6,6 @@
 :root {
   /* ── Brand ──────────────────────────────────────────────── */
   --color-primary:     #C92500;
-  --color-accent-teal: #3D8FA0;   /* timeline connector & company-block border */
 
   /* ── Neutrals ───────────────────────────────────────────── */
   --color-text:        #1A1A1A;
@@ -28,7 +27,7 @@
   --leading:    1.65;
 
   /* ── Layout ─────────────────────────────────────────────── */
-  --max-w:   760px;
+  --max-w:   900px;
   --nav-h:    72px;
   --gutter:   24px;
 

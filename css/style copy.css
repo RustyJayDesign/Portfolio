@@ -439,15 +439,18 @@ p strong {
   font-weight: 500;
   color: var(--color-text-sub);
   white-space: nowrap;
-  margin-right: var(--sp-4);   /* mirrors the gap on the left side of the dates */
 }
 
 /* ── Individual Testimonial ─────────────────────────────────*/
 .testimonial {
   display: flex;
   gap: var(--sp-4);
-  /* Right padding keeps content well clear of the ::after right border */
-  padding: var(--sp-3) var(--sp-6) var(--sp-3) 0;
+  /* Right padding keeps content clear of the ::after right border */
+  padding: var(--sp-3) var(--sp-4) var(--sp-3) 0;
+}
+
+.testimonial + .testimonial {
+  border-top: 1px solid var(--color-border);
 }
 
 /* Reviewer meta: photo + name + role */
@@ -602,16 +605,10 @@ p strong {
 
   .photo-profile { width: 100%; max-width: 320px; }
 
-  /* Stats: single column, centered */
+  /* Stats: single column */
   .stats-grid { grid-template-columns: 1fr; gap: 0; }
 
-  .stat {
-    padding: var(--sp-3) 0;
-    align-items: center;      /* center number + label horizontally */
-  }
-  .stat-number,
-  .stat-label { text-align: center; }
-
+  .stat { padding: var(--sp-3) 0; }
   .stat:first-child { padding-top: 0; }
   .stat + .stat {
     border-left: none;
@@ -625,13 +622,11 @@ p strong {
     padding-right: 0;          /* No right padding needed — no side border */
   }
 
-  /* Grid layout: photo spans both rows, name + role stack in column 2 */
   .testimonial-meta {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: auto auto;
-    column-gap: var(--sp-2);
+    flex-direction: row;
     width: auto;
+    align-items: flex-start;
+    gap: var(--sp-2);
   }
 
   /* Scale photo down for mobile; keep the square bottom-right corner */
@@ -640,26 +635,11 @@ p strong {
     width: 100px;
     height: 100px;
     border-radius: 14px 14px 0 14px;
-    grid-row: 1 / span 2;
-    grid-column: 1;
   }
 
-  .reviewer-name {
-    grid-row: 1;
-    grid-column: 2;
-    align-self: end;
-    text-align: left;
-    font-size: var(--text-base);  /* up from --text-sm */
-    padding-bottom: 3px;
-  }
-
-  .reviewer-role {
-    grid-row: 2;
-    grid-column: 2;
-    align-self: start;
-    text-align: left;
-    font-size: var(--text-sm);    /* up from --text-xs */
-  }
+  /* Left-align names when they're beside the photo in a row */
+  .reviewer-name,
+  .reviewer-role { text-align: left; }
 
   /* Company block on mobile: no side bracket at all.
      Keep only the horizontal rule between logo and dates.
@@ -670,6 +650,7 @@ p strong {
 
   .company-block::after { display: none; }
 
+  .company-timeline .company-rule:last-child { display: none; }
 
   /* Hide explicit line break in hero tagline — let it wrap */
   .hero-tagline br { display: none; }
