@@ -1,104 +1,642 @@
-/* ============================================
-   MAIN STYLES
-   ============================================ */
+@import url('variables.css');
 
-@import 'variables.css';
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* --- Reset --- */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-/* --- Base --- */
-html { font-size: 16px; scroll-behavior: smooth; }
+html {
+  font-size: 20px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family:      var(--font-body);
-  background-color: var(--color-bg);
-  color:            var(--color-text);
-  line-height:      1.7;
-  padding:          0 var(--space-md);
+  font-family: var(--font);
+  font-size: var(--text-base);
+  line-height: var(--leading);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Layout wrapper --- */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom element wrapper — must be block so sticky header works */
+site-nav { display: contents }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; }
+
+/* ============================================================
+   Layout
+   ============================================================ */
 .container {
-  max-width: var(--max-width);
-  margin:    0 auto;
-  padding:   var(--space-xl) 0;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
-/* --- Navigation --- */
-nav {
-  border-bottom: 1px solid var(--color-border);
-  padding:       var(--space-md) 0;
+/* ============================================================
+   Navigation
+   ============================================================ */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
 }
 
-nav .nav-inner {
-  max-width:      var(--max-width);
-  margin:         0 auto;
-  display:        flex;
-  justify-content:space-between;
-  align-items:    center;
-  padding:        0 var(--space-md);
-}
-
-nav .logo {
-  font-family:  var(--font-heading);
-  font-size:    1.2rem;
-  font-weight:  normal;
-  color:        var(--color-text);
-  text-decoration: none;
-}
-
-nav ul {
-  list-style: none;
-  display:    flex;
-  gap:        var(--space-lg);
-}
-
-nav a {
-  color:           var(--color-text-muted);
-  text-decoration: none;
-  font-size:       0.9rem;
-  transition:      color 0.2s;
-}
-
-nav a:hover { color: var(--color-accent); }
-
-/* --- Typography --- */
-h1, h2, h3 {
-  font-family:  var(--font-heading);
-  font-weight:  normal;
-  line-height:  1.2;
-}
-
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--space-md); }
-h2 { font-size: clamp(1.4rem, 3vw, 2rem);  margin-bottom: var(--space-sm); }
-h3 { font-size: 1.2rem;                    margin-bottom: var(--space-sm); }
-
-p  { margin-bottom: var(--space-md); color: var(--color-text-muted); }
-
-a  { color: var(--color-accent); }
-a:hover { color: var(--color-accent-dark); }
-
-/* --- Hero section --- */
-.hero {
-  padding: var(--space-xl) 0;
+.site-nav {
+  max-width: 940px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
   border-bottom: 1px solid var(--color-border);
 }
 
-.hero .eyebrow {
-  font-size:     0.85rem;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:         var(--color-accent);
-  margin-bottom: var(--space-sm);
+/* Left and right link groups */
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  flex: 1;
 }
 
-/* --- Footer --- */
-footer {
-  border-top:  1px solid var(--color-border);
-  padding:     var(--space-lg) var(--space-md);
-  text-align:  center;
-  color:       var(--color-text-muted);
-  font-size:   0.85rem;
-  margin-top:  var(--space-xl);
+.nav-left  { justify-content: flex-end; }
+.nav-right { justify-content: flex-start; }
+
+.nav-link {
+  font-family: var(--font);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-text);
+  white-space: nowrap;
+  transition: color var(--t-fast);
+}
+
+.nav-link:hover { color: var(--color-primary); }
+.nav-link.active {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.nav-logomark svg {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+/* ── Center logomark ────────────────────────────────────────
+   The logomark starts gray and transitions to red on scroll.
+   Color is controlled via `color: currentColor` on the child
+   element, toggled by the .is-scrolled class added in main.js.
+   ────────────────────────────────────────────────────────── */
+.nav-logomark {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444444;                  /* default: dark gray */
+  transition: color var(--t-slow);
+  line-height: 1;
+}
+
+/* Scrolled state — toggled by main.js */
+#site-header.is-scrolled .nav-logomark {
+  color: var(--color-primary);
+}
+
+/* ── Logomark placeholder ───────────────────────────────────
+   Remove this once your logomark SVG is added.
+
+   HOW TO ADD YOUR LOGOMARK:
+   Option A – Inline SVG (recommended):
+     Replace the <span> with your inline SVG.
+     Use fill="currentColor" on all <path> elements.
+     The gray→red scroll transition will work automatically.
+
+   Option B – <img> tag + CSS mask:
+     <img src="images/logomark.svg" class="logomark-mask" alt="">
+     Then add to style.css:
+       .logomark-mask {
+         display: block;
+         width: 36px; height: 44px;
+         background-color: currentColor;
+         -webkit-mask: url('../images/logomark.svg') center/contain no-repeat;
+                 mask: url('../images/logomark.svg') center/contain no-repeat;
+       }
+   ────────────────────────────────────────────────────────── */
+.logomark-placeholder {
+  font-family: var(--font);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  color: currentColor;
+  user-select: none;
+  display: block;
+  line-height: 1;
+}
+
+/* ── Mobile hamburger ───────────────────────────────────── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--sp-1);
+  color: var(--color-text);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform var(--t-base), opacity var(--t-base);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile dropdown menu
+   Hidden by default; .is-open class added/removed by main.js.
+   Using a class instead of the `hidden` attribute avoids the
+   classic bug where `display: flex` overrides `hidden`'s
+   implicit `display: none`. */
+.mobile-nav {
+  display: none;
+  border-top: 1px solid var(--color-border);
+  padding: var(--sp-3) var(--gutter) var(--sp-4);
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.mobile-nav.is-open {
+  display: flex;
+}
+
+.mobile-nav .nav-link {
+  font-size: var(--text-base);
+  padding: 3px 0;
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.section-hero {
+  padding-top: var(--sp-6);
+}
+
+.hero-inner {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-5);
+}
+
+/* Profile photo */
+.hero-photo { flex-shrink: 0; }
+
+.photo-profile {
+  width: 320px;
+  display: block;
+}
+
+/* Text column */
+.hero-text {
+  flex: 1;
+  padding-bottom: var(--sp-4);
+}
+
+
+.wordmark-wrap { margin-bottom: var(--sp-2); }
+
+.wordmark-img {
+  height: 68px;
+  width: auto;
+  display: block;
+}
+
+.wordmark-placeholder {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.wordmark-placeholder .accent { color: var(--color-primary); }
+
+/* Tagline */
+.hero-tagline {
+  font-size: var(--text-xl);
+  font-weight: 200;
+  color: var(--color-text-sub);
+  line-height: 1.5;
+}
+
+/* Red rule at bottom of hero — also reused before testimonials */
+.rule-primary {
+  height: 2px;
+  background: var(--color-primary);
+  border: none;
+  margin: 0;
+}
+
+.hero-rule {
+  margin-top: var(--sp-0);
+}
+
+/* ============================================================
+   About
+   ============================================================ */
+.section-about {
+  padding: var(--sp-5) 0;
+}
+
+.about-text {
+  font-size: var(--text-lg);
+  line-height: var(--leading);
+  color: var(--color-text);
+}
+
+.about-text strong { font-weight: 600; }
+
+/* ============================================================
+   Stats
+   ============================================================ */
+.section-stats {
+  border-top:    1px dashed var(--color-border-dash);
+  border-bottom: 1px dashed var(--color-border-dash);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: var(--sp-4) 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-inline: var(--sp-4);
+}
+
+/* First stat: flush with container left edge */
+.stat:first-child { padding-left: 0; }
+
+/* Dashed dividers between columns */
+.stat + .stat {
+  border-left: 1px dashed var(--color-border-dash);
+}
+
+.stat-number {
+  font-size: var(--text-stat);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.stat-label {
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: var(--color-text-sub);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   Expertise Domains
+   ============================================================ */
+.section-domains {
+  padding: var(--sp-4) 0 var(--sp-5);
+}
+
+.domains-heading {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--sp-3);
+}
+
+.domains-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-2) var(--sp-5);
+}
+
+.domains-list li {
+  font-size: var(--text-base);
+  color: var(--color-text-sub);
+}
+
+/* Spacer between domains and testimonials */
+.section-rule {
+  padding: 0 var(--gutter);
+}
+
+/* ============================================================
+   Testimonials
+   ============================================================ */
+.section-testimonials {
+  padding-bottom: var(--sp-7);
+}
+
+.testimonials-heading {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  text-align: center;
+  padding: var(--sp-5) 0 var(--sp-4);
+}
+
+/* ── Company Block ──────────────────────────────────────────
+   To add a new company, copy this entire .company-block div.
+   Update: logo image, year range, and testimonials inside.
+   ────────────────────────────────────────────────────────── */
+.company-block {
+  margin-bottom: var(--sp-6);
+  padding-right: var(--sp-4);
+  border-right: 3px solid var(--color-accent-teal);
+}
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.company-logo-wrap { flex-shrink: 0; }
+
+.company-logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+/* Teal timeline connector */
+.company-timeline {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+
+.company-rule {
+  flex: 1;
+  display: block;
+  height: 2px;
+  background: var(--color-accent-teal);
+}
+
+.company-years {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-sub);
+  white-space: nowrap;
+}
+
+/* ── Individual Testimonial ─────────────────────────────────
+   To add a new testimonial, copy this entire .testimonial div.
+   Update: photo, LinkedIn URL, name, role, and quote text.
+   ────────────────────────────────────────────────────────── */
+.testimonial {
+  display: flex;
+  gap: var(--sp-4);
+  padding: var(--sp-3) 0;
+}
+
+.testimonial + .testimonial {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Reviewer meta: photo + name + role */
+.testimonial-meta {
+  flex-shrink: 0;
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.reviewer-photo-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.reviewer-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+  display: block;
+}
+
+/* LinkedIn badge overlay */
+.reviewer-linkedin {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background: #0A66C2;
+  color: #fff;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--t-fast);
+}
+
+.reviewer-linkedin:hover { background: #084b90; }
+
+.reviewer-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.reviewer-role {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* Quote text */
+.testimonial-quote { flex: 1; }
+
+.testimonial-quote p {
+  font-size: var(--text-sm);
+  line-height: var(--leading);
+  color: var(--color-text);
+  margin-bottom: var(--sp-2);
+}
+
+.testimonial-quote p:last-child { margin-bottom: 0; }
+.testimonial-quote strong { font-weight: 600; }
+
+/* ============================================================
+   Image Placeholders
+   Remove each one once the real image is in place.
+   ============================================================ */
+.img-placeholder {
+  background: var(--color-placeholder);
+  border: 1.5px dashed var(--color-border-dash);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.5;
+  gap: 4px;
+}
+
+.img-placeholder--profile {
+  width: 210px;
+  height: 280px;
+}
+
+.img-placeholder--avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-sub);
+}
+
+.img-placeholder--logo {
+  width: 160px;
+  height: 44px;
+  font-size: var(--text-xs);
+  border-radius: 2px;
+  padding: 0 var(--sp-2);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--sp-4) 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ============================================================
+   Responsive — Tablet & Mobile
+   ============================================================ */
+@media (max-width: 768px) {
+  :root {
+    --nav-h:   60px;
+    --gutter:  20px;
+  }
+
+  /* Hide desktop nav groups, show hamburger */
+  .nav-group  { display: none; }
+  .nav-toggle { display: flex; }
+
+  /* On mobile, wordmark takes up the remaining nav space */
+  .site-nav { justify-content: space-between; }
+
+  /* Hero stacks vertically */
+  .hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-3);
+  }
+
+  .img-placeholder--profile {
+    width: 160px;
+    height: 214px;
+  }
+
+  .photo-profile { width: 160px; }
+
+  /* Stats: single column */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .stat {
+    padding: var(--sp-3) 0;
+  }
+
+  .stat:first-child { padding-top: 0; }
+
+  .stat + .stat {
+    border-left: none;
+    border-top: 1px dashed var(--color-border-dash);
+  }
+
+  /* Testimonials */
+  .testimonial {
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+
+  .testimonial-meta {
+    flex-direction: row;
+    width: auto;
+    align-items: flex-start;
+    gap: var(--sp-2);
+  }
+
+  /* Company block accent moves to left side on mobile */
+  .company-block {
+    border-right: none;
+    border-left: 3px solid var(--color-accent-teal);
+    padding-right: 0;
+    padding-left: var(--sp-3);
+  }
+
+  /* Hide the explicit line break in hero tagline — let it wrap */
+  .hero-tagline br { display: none; }
+}
+
+@media (max-width: 480px) {
+  .wordmark-placeholder { font-size: 2.5rem; }
+  .stat-number          { font-size: 1.625rem; }
+  .hero-tagline         { font-size: var(--text-base); }
+  .domains-list         { gap: var(--sp-1) var(--sp-3); }
 }
