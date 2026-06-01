@@ -48,9 +48,9 @@ class SiteNav extends HTMLElement {
 
           <div class="nav-group nav-right">
             <a href="${p}/contact.html"                          class="nav-link">Contact</a>
-            <a href="https://www.linkedin.com/in/rustyjay"
+            <a href="https://www.linkedin.com/in/rustysmith/"
                target="_blank" rel="noopener noreferrer"        class="nav-link">LinkedIn</a>
-            <a href="${p}/resume.pdf"
+            <a href="${p}/Docs/resume.pdf"
                target="_blank" rel="noopener noreferrer"        class="nav-link">Resumé</a>
           </div>
 
@@ -69,9 +69,9 @@ class SiteNav extends HTMLElement {
           <a href="${p}/case-studies/" class="nav-link">Case Studies</a>
           <a href="${p}/about.html"    class="nav-link">About Me</a>
           <a href="${p}/contact.html"  class="nav-link">Contact</a>
-          <a href="https://www.linkedin.com/in/rustyjay"
+          <a href="https://www.linkedin.com/in/rustysmith/"
              target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
-          <a href="${p}/resume.pdf"
+          <a href="${p}/Docs/resume.pdf"
              target="_blank" rel="noopener noreferrer" class="nav-link">Resumé</a>
         </div>
       </header>
