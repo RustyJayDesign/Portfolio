@@ -50,7 +50,7 @@ class SiteNav extends HTMLElement {
             <a href="${p}/contact.html"                          class="nav-link">Contact</a>
             <a href="https://www.linkedin.com/in/rustysmith/"
                target="_blank" rel="noopener noreferrer"        class="nav-link">LinkedIn</a>
-            <a href="${p}/Docs/resume.pdf"
+            <a href="${p}/Docs/Rusty-Smith-Resume.pdf"
                target="_blank" rel="noopener noreferrer"        class="nav-link">Resumé</a>
           </div>
 
@@ -71,7 +71,7 @@ class SiteNav extends HTMLElement {
           <a href="${p}/contact.html"  class="nav-link">Contact</a>
           <a href="https://www.linkedin.com/in/rustysmith/"
              target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
-          <a href="${p}/Docs/resume.pdf"
+          <a href="${p}/Docs/Rusty-Smith-Resume.pdf"
              target="_blank" rel="noopener noreferrer" class="nav-link">Resumé</a>
         </div>
       </header>
