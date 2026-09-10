@@ -394,13 +394,25 @@ p strong {
   pointer-events: none;
 }
 
+/* SwipeSimple — brand blue */
+.company-block--swipesimple::after    { border-color: #1371CF; }
+.company-block--swipesimple .company-rule { background: #1371CF; }
+
 /* One Identity — brand blue */
-.company-block--oneidentity::after    { border-color: #0085C7; }
-.company-block--oneidentity .company-rule { background: #0085C7; }
+.company-block--oneidentity::after    { border-color: #04AADA; }
+.company-block--oneidentity .company-rule { background: #04AADA; }
 
 /* DirectScale — brand blue */
-.company-block--directscale::after    { border-color: #1E7BC4; }
-.company-block--directscale .company-rule { background: #1E7BC4; }
+.company-block--directscale::after    { border-color: #3DB6E5; }
+.company-block--directscale .company-rule { background: #3DB6E5; }
+
+/* Workfront — brand orange */
+.company-block--workfront::after    { border-color: #F7812F; }
+.company-block--workfront .company-rule { background: #F7812F; }
+
+/* NuSkin */
+.company-block--NuSkin::after    { border-color: #007599; }
+.company-block--NuSkin .company-rule { background: #007599; }
 
 .company-header {
   display: flex;
