@@ -34,7 +34,8 @@ class SiteNav extends HTMLElement {
         <nav class="site-nav" aria-label="Main navigation">
 
           <div class="nav-group nav-left">
-            <a href="${p}/index.html"    class="nav-link">Home</a>
+            <!-- TODO: re-enable once other pages exist alongside it -->
+            <!-- <a href="${p}/index.html"    class="nav-link">Home</a> -->
             <!-- TODO: re-enable once /case-studies/ is built -->
             <!-- <a href="${p}/case-studies/" class="nav-link">Case Studies</a> -->
             <!-- TODO: re-enable once /about.html is built -->
@@ -68,7 +69,8 @@ class SiteNav extends HTMLElement {
         </nav>
 
         <div class="mobile-nav" id="mobile-nav">
-          <a href="${p}/index.html"    class="nav-link">Home</a>
+          <!-- TODO: re-enable once other pages exist alongside it -->
+          <!-- <a href="${p}/index.html"    class="nav-link">Home</a> -->
           <!-- TODO: re-enable once /case-studies/ is built -->
           <!-- <a href="${p}/case-studies/" class="nav-link">Case Studies</a> -->
           <!-- TODO: re-enable once /about.html is built -->
