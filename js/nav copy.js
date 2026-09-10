@@ -35,10 +35,8 @@ class SiteNav extends HTMLElement {
 
           <div class="nav-group nav-left">
             <a href="${p}/index.html"    class="nav-link">Home</a>
-            <!-- TODO: re-enable once /case-studies/ is built -->
-            <!-- <a href="${p}/case-studies/" class="nav-link">Case Studies</a> -->
-            <!-- TODO: re-enable once /about.html is built -->
-            <!-- <a href="${p}/about.html"    class="nav-link">About Me</a> -->
+            <a href="${p}/case-studies/" class="nav-link">Case Studies</a>
+            <a href="${p}/about.html"    class="nav-link">About Me</a>
           </div>
 
           <!-- Logomark: see style.css for SVG swap instructions -->
@@ -49,8 +47,7 @@ class SiteNav extends HTMLElement {
           </a>
 
           <div class="nav-group nav-right">
-            <!-- TODO: re-enable once /contact.html is built -->
-            <!-- <a href="${p}/contact.html"                          class="nav-link">Contact</a> -->
+            <a href="${p}/contact.html"                          class="nav-link">Contact</a>
             <a href="https://www.linkedin.com/in/rustysmith/"
                target="_blank" rel="noopener noreferrer"        class="nav-link">LinkedIn</a>
             <a href="${p}/Docs/Rusty-Smith-Resume.pdf"
@@ -69,12 +66,9 @@ class SiteNav extends HTMLElement {
 
         <div class="mobile-nav" id="mobile-nav">
           <a href="${p}/index.html"    class="nav-link">Home</a>
-          <!-- TODO: re-enable once /case-studies/ is built -->
-          <!-- <a href="${p}/case-studies/" class="nav-link">Case Studies</a> -->
-          <!-- TODO: re-enable once /about.html is built -->
-          <!-- <a href="${p}/about.html"    class="nav-link">About Me</a> -->
-          <!-- TODO: re-enable once /contact.html is built -->
-          <!-- <a href="${p}/contact.html"  class="nav-link">Contact</a> -->
+          <a href="${p}/case-studies/" class="nav-link">Case Studies</a>
+          <a href="${p}/about.html"    class="nav-link">About Me</a>
+          <a href="${p}/contact.html"  class="nav-link">Contact</a>
           <a href="https://www.linkedin.com/in/rustysmith/"
              target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
           <a href="${p}/Docs/Rusty-Smith-Resume.pdf"
